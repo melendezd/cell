@@ -25,7 +25,7 @@ library
     exposed-modules:  Cell, Cell.Types, Cell.UI
 
     -- Modules included in this library but not exported.
-    other-modules: Cell.Automata.Common, Cell.Automata.Conway, Cell.Automata.Types, Cell.Automata, Cell.UI.Types, Cell.UI.Class, Cell.UI.Attr
+    other-modules: Cell.Automata.Common, Cell.Automata.Conway, Cell.Automata.Types, Cell.Automata, Cell.UI.Types, Cell.UI.Draw, Cell.Util, Cell.UI.InputHandler
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:

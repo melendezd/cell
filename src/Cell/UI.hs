@@ -2,7 +2,8 @@ module Cell.UI
   ( displayGrid
   , withCellAttr
   , cellAttrMap
-  , Drawable(..)
+  , handleInput
+  , defaultKeyMap
   , Tick(..)
   , Name(..)
   ) where
@@ -13,9 +14,9 @@ import           Brick.Widgets.Border.Style as BorderStyle
 import           Brick.Widgets.Center
 
 import           Cell.Automata
-import           Cell.UI.Attr
-import           Cell.UI.Class
 import           Cell.UI.Types
+import           Cell.UI.Draw
+import           Cell.UI.InputHandler
 
 import           Data.Array
 import           Data.Function              ( (&) )
@@ -23,6 +24,6 @@ import qualified Data.Map                   as M
 
 import qualified Graphics.Vty               as Vty
 
-displayGrid :: (Drawable cell Name) => String -> Grid cell -> Widget Name
-displayGrid title = hCenter . vCenter . withBorderStyle BorderStyle.unicode
-  . borderWithLabel (str title) . draw
+displayGrid :: String -> (Int, Int) -> Grid BinaryCell -> Widget Name
+displayGrid title selectionPos = hCenter . vCenter . withBorderStyle BorderStyle.unicode
+  . borderWithLabel (str title) . drawGrid selectionPos
